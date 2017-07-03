@@ -1,0 +1,24 @@
+<!DOCTYPE FilterScript>
+<FilterScript>
+ <filter name="Remove Duplicate Faces"/>
+ <filter name="Remove Duplicate Vertices"/>
+ <filter name="Remove Zero Area Faces"/>
+ <filter name="Select Self Intersecting Faces"/>
+ <filter name="Delete Selected Faces and Vertices"/>
+ <filter name="Remove Isolated pieces (wrt Face Num.)">
+  <Param type="RichInt" tooltip="Delete all the connected components (floating pieces) composed by a number of triangles smaller than the specified one" name="MinComponentSize" value="25" description="Enter minimum conn. comp size:"/>
+  <Param type="RichBool" tooltip="if true, the unreferenced vertices remaining after the face deletion are removed." name="removeUnref" value="true" description="Remove unfreferenced vertices"/>
+ </filter>
+ <filter name="Split Vertexes Incident on Non Manifold Faces">
+  <Param type="RichFloat" tooltip="When a vertex is split it is moved along the average vector going from its position to the baricyenter of the FF connected faces sharing it" name="VertDispRatio" value="0" description="Vertex Displacement Ratio"/>
+ </filter>
+ <filter name="Select non Manifold Edges "/>
+ <filter name="Delete Selected Faces and Vertices"/>
+ <filter name="Close Holes">
+  <Param type="RichInt" tooltip="The size is expressed as number of edges composing the hole boundary" name="MaxHoleSize" value="30" description="Max size to be closed "/>
+  <Param type="RichBool" tooltip="Only the holes with at least one of the boundary faces selected are closed" name="Selected" value="false" description="Close holes with selected faces"/>
+  <Param type="RichBool" tooltip="After closing a hole the faces that have been created are left selected. Any previous selection is lost. Useful for example for smoothing the newly created holes." name="NewFaceSelected" value="false" description="Select the newly created faces"/>
+  <Param type="RichBool" tooltip="When closing an holes it tries to prevent the creation of faces that intersect faces adjacent to the boundary of the hole. It is an heuristic, non intersetcting hole filling can be NP-complete." name="SelfIntersection" value="true" description="Prevent creation of selfIntersecting faces"/>
+ </filter>
+ <filter name="Remove Unreferenced Vertices"/>
+</FilterScript>
